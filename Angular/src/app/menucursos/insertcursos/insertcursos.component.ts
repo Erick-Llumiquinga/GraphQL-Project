@@ -50,7 +50,7 @@ export class InsertcursosComponent implements OnInit {
         descripcion: `${this.createcursoForm.get('descripcion').value}`,
       },
     };
-    {
+    if(this.createcursoForm.valid){
       this._Subscription = this.apollo
         .mutate<any>({
           mutation: postCursos,
@@ -83,6 +83,14 @@ export class InsertcursosComponent implements OnInit {
             });
           }
         );
+    }else{
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: `Campos requeridos :*`,
+        showConfirmButton: false,
+        timer: 2000,
+      });
     }
   }
 }
