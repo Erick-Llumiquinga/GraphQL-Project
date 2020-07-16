@@ -1,0 +1,51 @@
+<div class="md:px-32 py-8 w-full">
+    <div class="flex max-w-md bg-white shadow-lg rounded-lg overflow-hidden">
+        <div class="w-2 bg-gray-800"></div>
+        <div class="flex items-center px-2 py-3">
+            <div class="mx-3">
+                <h2 class="text-xl font-semibold text-gray-800">Menú Estudiantes</h2>
+            </div>
+        </div>
+    </div>
+    <div class="shadow overflow-hidden rounded border-b border-gray-200">
+        <table class="min-w-full bg-white">
+            <thead class="bg-gray-800 text-white">
+                <tr>
+                    <td class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Nombre</td>
+                    <td class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Apellido</td>
+                    <td class="text-left py-3 px-4 uppercase font-semibold text-sm">Email</td>
+                    <td class="text-left py-3 px-4 uppercase font-semibold text-sm">Dirección</td>
+                    <td class="text-left py-3 px-4 uppercase font-semibold text-sm">edad</td>
+                    <td class="text-left py-3 px-4 uppercase font-semibold text-sm">foto</td>
+                    <td class="text-left py-3 px-4 uppercase font-semibold text-sm">Editar</td>
+                    <td class="text-left py-3 px-4 uppercase font-semibold text-sm">Eliminar</td>
+                    <td class="text-left py-3 px-4 uppercase font-semibold text-sm">Crear</td>
+                </tr>
+            </thead>
+            <tbody class="text-gray-700">
+                <tr *ngFor="let item of estudiantes | async">
+                    <td class="w-1/2 text-left py-3 px-4">{{item.nombre}}</td>
+                    <td class="w-1/2 text-left py-3 px-4">{{item.apellido}}</td>
+                    <td class="text-left py-3 px-4">{{item.email}}</td>
+                    <td class="text-left py-3 px-4">{{item.direccion}}</td>
+                    <td class="text-left py-3 px-4">{{item.edad}}</td>
+                    <!-- <td class="text-left py-3 px-4"><img></td> -->
+                    <td class="text-left py-3 px-4">
+                        <span class="material-icons bg-transparent text-blue-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                                edit
+                      </span>
+                    </td>
+                    <td class="text-left py-3 px-4">
+                        <span class="material-icons bg-transparent text-red-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                            delete_sweep
+                      </span>
+                        <td class="text-left py-3 px-4">
+                            <span class="material-icons bg-transparent text-red-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                                    create_new_folder
+                              </span>
+                            <td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

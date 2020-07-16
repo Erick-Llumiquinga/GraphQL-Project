@@ -1,0 +1,98 @@
+type Curso{
+    _id: ID!
+    titulo: String
+    profesor: String
+    descripcion: String
+    genero: String
+    asistentes:[Estudiante] 
+}
+
+type Estudiante {
+    _id: ID!  
+    nombre: String
+    apellido: String
+    email: String
+    direccion: String
+    edad: String
+    foto: String
+}
+
+type User{
+  _id: ID!
+  email: String!
+  password: String!
+}
+
+#Queries
+type Query {
+    hello: String
+    saludo: String
+    getCursos: [Curso]
+    getCurso(id: ID!): Curso
+    getEstudiantes: [Estudiante]
+    getEstudiante(id: ID!): Estudiante
+    
+    getUser(id: ID!): User
+    getUsers: [User]
+    #login(email: String!, password: String!): AuthData!
+}
+
+#Inputs
+input CursoInput{
+    titulo: String!
+    profesor: String!
+    descripcion: String!
+    genero: String!
+}
+
+
+input EstudianteInput{
+    nombre: String!
+    email: String!
+}
+
+input CursoEditaInput{
+    titulo: String
+    profesor: String
+    descripcion: String
+    genero: String
+    asistentes: [String]
+}
+
+
+input EstudianteEditaInput{
+    nombre: String
+    email: String
+}
+
+input UserInput{
+  email: String!
+  password: String!
+}
+
+input LoginInput{
+   email: String!
+   password: String! 
+}
+
+
+#user
+type AuthData {
+  userId: ID!
+  token: String!
+  tokenExpiration: Int!
+}
+
+type Mutation {
+    nuevoCurso(input: CursoInput!): Curso
+    editarCurso(id: ID!, input: CursoEditaInput): Curso
+
+    nuevoEstudiante(input: EstudianteInput!): Estudiante
+    editarEstudiante(id: ID!, input: EstudianteEditaInput): Estudiante
+
+    nuevoUser(input: UserInput): User
+    
+    login(input: LoginInput!): User
+}
+
+
