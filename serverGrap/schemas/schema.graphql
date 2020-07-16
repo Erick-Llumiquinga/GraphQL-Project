@@ -21,20 +21,13 @@ type User{
   _id: ID!
   email: String!
   password: String!
+  token: String
 }
 
-#Queries
-type Query {
-    hello: String
-    saludo: String
-    getCursos: [Curso]
-    getCurso(id: ID!): Curso
-    getEstudiantes: [Estudiante]
-    getEstudiante(id: ID!): Estudiante
-    
-    getUser(id: ID!): User
-    getUsers: [User]
-    #login(email: String!, password: String!): AuthData!
+type AuthData {
+  userId: ID!
+  token: String!
+  tokenExpiration: Int!
 }
 
 #Inputs
@@ -44,7 +37,6 @@ input CursoInput{
     descripcion: String!
     genero: String!
 }
-
 
 input EstudianteInput{
     nombre: String!
@@ -58,7 +50,6 @@ input CursoEditaInput{
     genero: String
     asistentes: [String]
 }
-
 
 input EstudianteEditaInput{
     nombre: String
@@ -75,17 +66,24 @@ input LoginInput{
    password: String! 
 }
 
-
-#user
-type AuthData {
-  userId: ID!
-  token: String!
-  tokenExpiration: Int!
+#Queries
+type Query {
+    hello: String
+    saludo: String
+    getCursos: [Curso]
+    getCurso(id: ID!): Curso
+    getEstudiantes: [Estudiante]
+    getEstudiante(id: ID!): Estudiante
+    
+    getUser(id: ID!): User
+    getUsers: [User]
 }
 
+#Mutation
 type Mutation {
     nuevoCurso(input: CursoInput!): Curso
     editarCurso(id: ID!, input: CursoEditaInput): Curso
+    eliminarCurso(id: ID!): Boolean
 
     nuevoEstudiante(input: EstudianteInput!): Estudiante
     editarEstudiante(id: ID!, input: EstudianteEditaInput): Estudiante
@@ -94,5 +92,10 @@ type Mutation {
     
     login(input: LoginInput!): User
 }
+
+
+
+
+
 
 

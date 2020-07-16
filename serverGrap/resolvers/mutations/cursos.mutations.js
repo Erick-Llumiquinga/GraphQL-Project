@@ -37,9 +37,24 @@ editarCurso = async (root, {id, input}) =>{
         console.error(error)
     }
     return curso[0]
+},
+
+eliminarCurso = async (root, {id}) =>{
+    let deleted = false;
+    try{
+        let data = await Cursos.deleteOne({_id: ObjectID(id)})
+        if(data){
+            return deleted = true
+        } else {
+            return deleted 
+        }
+    }catch(error){
+        console.error(error)
+    }
 }
 
 module.exports = {
     nuevoCurso,
-    editarCurso
+    editarCurso,
+    eliminarCurso
 }
