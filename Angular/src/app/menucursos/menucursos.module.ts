@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 
 import { MenucursosRoutingModule } from './menucursos-routing.module';
 import { InsertcursosComponent } from './insertcursos/insertcursos.component';
@@ -9,7 +10,9 @@ import { UpdatecursosComponent } from './updatecursos/updatecursos.component';
   declarations: [ InsertcursosComponent, UpdatecursosComponent],
   imports: [
     CommonModule,
-    MenucursosRoutingModule
+    MenucursosRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class MenucursosModule { }

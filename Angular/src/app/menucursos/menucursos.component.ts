@@ -28,6 +28,8 @@ export class MenucursosComponent implements OnInit {
             titulo
             profesor
             genero
+            descripcion
+            asistentes
           }
         }`
       })
