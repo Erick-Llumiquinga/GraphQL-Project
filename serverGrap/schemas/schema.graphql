@@ -12,6 +12,7 @@ type Estudiante {
     nombre: String
     apellido: String
     email: String
+    password: String
     direccion: String
     edad: String
     foto: String

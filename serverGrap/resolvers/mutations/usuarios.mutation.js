@@ -62,7 +62,6 @@ eliminarUser = async (root, {id}) =>{
     }
 }
 
-
  module.exports = {
      nuevoUser,
      editarUser,
