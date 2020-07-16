@@ -1,7 +1,8 @@
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const User = require('../models/Usuarios');
-const passwordMiddleware = require('../../middleware/Password')
+const passwordMiddleware = require('../../middleware/Password');
+const Usuarios = require('../models/Usuarios');
 
 let nuevoUser = async (root, {input}) =>{
 
@@ -29,11 +30,43 @@ let nuevoUser = async (root, {input}) =>{
     }
     console.log(nuevoUser)
     return  nuevoUser
+},
+
+editarUser = async (root, {id, input}) =>{
+    let user
+    try{
+        
+        await Usuarios.updateOne(
+             {_id: ObjectID(id)},
+             { $set: input}
+         )
+        
+        user = await Usuarios.find({_id: ObjectID(id)}) 
+    }catch(error){
+        console.error(error)
+    }
+    return user[0]
+},
+
+eliminarUser = async (root, {id}) =>{
+    let deleted = false;
+    try{
+        let data = await Usuarios.deleteOne({_id: ObjectID(id)})
+        if(data){
+            return deleted = true
+        } else {
+            return deleted 
+        }
+    }catch(error){
+        console.error(error)
+    }
 }
 
 
  module.exports = {
-     nuevoUser        
+     nuevoUser,
+     editarUser,
+     eliminarUser  
  };  
 
 

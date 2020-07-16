@@ -87,8 +87,11 @@ type Mutation {
 
     nuevoEstudiante(input: EstudianteInput!): Estudiante
     editarEstudiante(id: ID!, input: EstudianteEditaInput): Estudiante
+    eliminarEstudiante(id: ID!): Boolean
 
     nuevoUser(input: UserInput): User
+    editarUser(id: ID!, input: UserInput): User
+    eliminarUser(id: ID!): Boolean
     
     login(input: LoginInput!): User
 }

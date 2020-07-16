@@ -27,9 +27,24 @@ editarEstudiante = async (root, {id, input}) =>{
         console.error(error)
     }
     return  estudiante[0]
+},
+
+eliminarEstudiante = async (root, {id}) =>{
+    let deleted = false;
+    try{
+        let data = await Estudiantes.deleteOne({_id: ObjectID(id)})
+        if(data){
+            return deleted = true
+        } else {
+            return deleted 
+        }
+    }catch(error){
+        console.error(error)
+    }
 }
 
 module.exports = {
     nuevoEstudiante,
-    editarEstudiante
+    editarEstudiante,
+    eliminarEstudiante
 }
