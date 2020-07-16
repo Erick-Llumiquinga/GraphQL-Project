@@ -74,7 +74,7 @@ export class InsertestudiantesComponent implements OnInit {
             (data) => {
               console.log(data);
               if (data) {
-                this.router.navigate(['/menucursos']);
+                this.router.navigate(['/menuestudiantes']);
               } else {
                 Swal.fire({
                   position: 'center',

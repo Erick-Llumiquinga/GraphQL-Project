@@ -43,7 +43,7 @@ input EstudianteInput{
     nombre: String!
     apellido: String!
     email: String!
-    password: String!
+    password: String
     direccion: String!
     edad: String!
     # foto: String
@@ -77,27 +77,27 @@ type Query {
     hello: String
     saludo: String
     getCursos: [Curso]
-    getCurso(id: ID!): Curso
+    getCurso(_id: ID!): Curso
     getEstudiantes: [Estudiante]
-    getEstudiante(id: ID!): Estudiante
+    getEstudiante(_id: ID!): Estudiante
     
-    getUser(id: ID!): User
+    getUser(_id: ID!): User
     getUsers: [User]
 }
 
 #Mutation
 type Mutation {
     nuevoCurso(input: CursoInput!): Curso
-    editarCurso(id: ID!, input: CursoEditaInput): Curso
-    eliminarCurso(id: ID!): Boolean
+    editarCurso(_id: ID!, input: CursoEditaInput): Curso
+    eliminarCurso(_id: ID!): Boolean
 
     nuevoEstudiante(input: EstudianteInput!): Estudiante
-    editarEstudiante(id: ID!, input: EstudianteEditaInput): Estudiante
+    editarEstudiante(_id: ID!, input: EstudianteEditaInput): Estudiante
     eliminarEstudiante(id: ID!): Boolean
 
     nuevoUser(input: UserInput): User
-    editarUser(id: ID!, input: UserInput): User
-    eliminarUser(id: ID!): Boolean
+    editarUser(_id: ID!, input: UserInput): User
+    eliminarUser(_id: ID!): Boolean
     
     login(input: LoginInput!): User
 }

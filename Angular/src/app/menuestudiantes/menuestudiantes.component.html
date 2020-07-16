@@ -5,6 +5,9 @@
             <div class="mx-3">
                 <h2 class="text-xl font-semibold text-gray-800">Menú Estudiantes</h2>
             </div>
+            <span [routerLink]="['/menuestudiantes/insertestudiante']" routerLinkActive="router-link-active" class="material-icons bg-transparent text-red-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                create_new_folder
+          </span>
         </div>
     </div>
     <div class="shadow overflow-hidden rounded border-b border-gray-200">
@@ -16,14 +19,13 @@
                     <td class="text-left py-3 px-4 uppercase font-semibold text-sm">Email</td>
                     <td class="text-left py-3 px-4 uppercase font-semibold text-sm">Dirección</td>
                     <td class="text-left py-3 px-4 uppercase font-semibold text-sm">edad</td>
-                    <td class="text-left py-3 px-4 uppercase font-semibold text-sm">foto</td>
+                    <!-- <td class="text-left py-3 px-4 uppercase font-semibold text-sm">foto</td> -->
                     <td class="text-left py-3 px-4 uppercase font-semibold text-sm">Editar</td>
                     <td class="text-left py-3 px-4 uppercase font-semibold text-sm">Eliminar</td>
-                    <td class="text-left py-3 px-4 uppercase font-semibold text-sm">Crear</td>
                 </tr>
             </thead>
             <tbody class="text-gray-700">
-                <tr *ngFor="let item of estudiantes | async">
+                <tr *ngFor="let item of estudiantes">
                     <td class="w-1/2 text-left py-3 px-4">{{item.nombre}}</td>
                     <td class="w-1/2 text-left py-3 px-4">{{item.apellido}}</td>
                     <td class="text-left py-3 px-4">{{item.email}}</td>
@@ -36,14 +38,9 @@
                       </span>
                     </td>
                     <td class="text-left py-3 px-4">
-                        <span class="material-icons bg-transparent text-red-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                        <span (click)="deleteEstudiante(item._id)" class="material-icons bg-transparent text-red-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded">
                             delete_sweep
                       </span>
-                        <td class="text-left py-3 px-4">
-                            <span class="material-icons bg-transparent text-red-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-                                    create_new_folder
-                              </span>
-                            <td>
                 </tr>
             </tbody>
         </table>
