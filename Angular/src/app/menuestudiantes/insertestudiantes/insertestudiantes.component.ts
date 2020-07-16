@@ -15,7 +15,7 @@ const postEstudy = gql`
       apellido
       direccion
       edad
-      foto
+      # foto
       password
     }
   }

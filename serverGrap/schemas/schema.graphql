@@ -41,7 +41,12 @@ input CursoInput{
 
 input EstudianteInput{
     nombre: String!
+    apellido: String!
     email: String!
+    password: String!
+    direccion: String!
+    edad: String!
+    # foto: String
 }
 
 input CursoEditaInput{
